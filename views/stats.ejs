@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-  </head>
-  <body>
+    <link rel="stylesheet" type="text/css" href="https://rawgit.com/gionkunz/chartist-js/master/dist/chartist.min.css">
+    <style>
+        .ct-chart {
+            height: 300px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript" src="https://rawgit.com/gionkunz/chartist-js/master/dist/chartist.js"></script>
+
     <div class="container">
-      <fieldset>   
+        <fieldset>
             <% if(runStats !== null){ %>
                 <p><%= runStats %></p>
             <% } %>
@@ -16,12 +27,57 @@
             <% if(rideStats !== null){ %>
                 <p><%= rideStats %></p>
             <% } %>
-  
+
             <% if(error !== null){ %>
                 <p><%= error %></p>
             <% } %>
 
-      </fieldset>
+            <p>Aktywności: </p>
+            <div class="ct-chart" id="chart2"></div>
+
+            <form action="/home" method="get">
+                <input type="submit" class="ghost-button" value="Back">
+            </form>
+            <form action="/chartistTest" method="get">
+                <input type="submit" class="ghost-button" value="#Chartist">
+            </form>
+
+        </fieldset>
     </div>
-  </body>
+    <script>
+        var runs = <%-JSON.stringify(runCount)%>;
+        var swims = <%-JSON.stringify(swimCount)%>;
+        var rides = <%-JSON.stringify(rideCount)%>;
+        var total = (runs + swims + rides) / 100;
+        var dataPie = {
+            labels: ['Runs ' + Math.round(runs / total) + '%', 'Swims ' + Math.round(swims / total) + '%', 'Rides ' + Math.round(rides / total) + '%'],
+            series: [runs, swims, rides]
+        };
+        var options = {
+            labelInterpolationFnc: function (value) {
+                return value[0]
+            }
+        };
+
+        var responsiveOptions = [
+            ['screen and (min-width: 640px)', {
+                chartPadding: 30,
+                labelOffset: 100,
+                labelDirection: 'explode',
+                labelInterpolationFnc: function (value) {
+                    return value;
+                }
+            }],
+            ['screen and (min-width: 1024px)', {
+                labelOffset: 80,
+                chartPadding: 20
+            }]
+        ];
+
+        var sum = function (a, b) { return a + b };
+
+        new Chartist.Pie('#chart2', dataPie, options, responsiveOptions);
+    </script>
+</body>
+
 </html>
