@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 
-app.get('/home', function (req, res) {
+app.get('/', function (req, res) {
     let url = `https://www.strava.com/api/v3/athlete?access_token=${accessToken}`
     request(url, function (err, response, body) {
         if (err) {
