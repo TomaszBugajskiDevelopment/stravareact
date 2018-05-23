@@ -5,6 +5,8 @@ const request = require('request');
 const accessToken = '0df5dc9a451071f06dfa5207725021ba56c75e85'
 const id = "20905149"
 
+var port = process.env.PORT || 4000;
+
 app.set('view engine', 'ejs')
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -94,6 +96,6 @@ function formatDate(d) {
     return month + '/' + day + '/' + year;
 }
 
-app.listen(4000, function () {
-    console.log('Example app listening on port 4000!')
+app.listen(port, function () {
+    console.log('Example app listening on port: ' + port)
 })
