@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build",
     "dev": "webpack-dev-server --history-api-fallback --port 8901 --hot --host 127.0.0.1 --inline",
-    "build": "webpack -d && copy src\\index.html dist\\index.html && webpack-dev-server --watch-poll --content-base src --hot --inline --history-api-fallback",
+    "build": "webpack -d && copy src\\index.html dist\\index.html && webpack-dev-server --watch-poll --port ${PORT} --content-base src --hot --inline --history-api-fallback",
     "build:prod": "webpack -p && copy src\\index.html dist\\index.html"
   },
   "keywords": [
@@ -18,6 +18,7 @@
     "body-parser": "^1.18.3",
     "chartist": "^0.11.0",
     "cors": "^2.8.4",
+    "esm": "^3.0.52",
     "express": "^4.16.3",
     "jade": "^1.11.0",
     "jquery": "^3.3.1",
@@ -32,17 +33,20 @@
     "node": "9.11.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^6.2.4",
-    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.11.1",
-    "babel-preset-stage-2": "^6.11.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^3.1.3",
     "webpack-dev-server": "^1.14.1",
     "webpack-hot-middleware": "^2.22.2"
   },
-  "jest" : {
+  "jest": {
     "transform": {
       "^.+\\.js?$": "babel-jest"
     },
