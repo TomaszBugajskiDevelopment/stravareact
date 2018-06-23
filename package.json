@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build",
     "dev": "webpack-dev-server --history-api-fallback --port 8901 --hot --host 127.0.0.1 --inline",
-    "build": "webpack -d && copy src\\index.html dist\\index.html && webpack-dev-server --watch-poll --port ${PORT} --content-base src --hot --inline --history-api-fallback",
+    "build": "webpack -d && copy src\\index.html dist\\index.html && webpack-dev-server --watch-poll --port 7777 --content-base src --hot --inline --history-api-fallback",
     "build:prod": "webpack -p && copy src\\index.html dist\\index.html"
   },
   "keywords": [
@@ -41,7 +41,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.26.0",
-    "webpack": "^1.13.1",
+    "webpack": "^1.15.0",
     "webpack-dev-middleware": "^3.1.3",
     "webpack-dev-server": "^1.14.1",
     "webpack-hot-middleware": "^2.22.2"
