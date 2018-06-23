@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const authors = ['Krzysztof Balwierczak', 'Tomasz Bugajski'];
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 const accessToken = '0df5dc9a451071f06dfa5207725021ba56c75e85';
 const id = "20905149";
 
