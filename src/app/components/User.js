@@ -7,7 +7,7 @@ export class User extends React.Component {
     };
 
     componentDidMount() {
-        $.get('http://localhost:8000/athlete').then((res) => this.setState({athlete: res}));
+        $.get('https://stravareact.herokuapp.com/athlete').then((res) => this.setState({athlete: res}));
     }
 
     render() {

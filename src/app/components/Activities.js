@@ -7,7 +7,7 @@ export class Activities extends React.Component {
     };
 
     componentDidMount(){
-        $.get('http://localhost:8000/activities').then((res) => this.setState({ activities: res }));
+        $.get('https://stravareact.herokuapp.com/activities').then((res) => this.setState({ activities: res }));
     }
 
     formatDate = (d) => {

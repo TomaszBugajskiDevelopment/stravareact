@@ -7,7 +7,7 @@ export class Stats extends React.Component {
     };
 
     componentDidMount(){
-        $.get('http://localhost:8000/stats').then((res) => this.setState({ stats: res }));
+        $.get('https://stravareact.herokuapp.com/stats').then((res) => this.setState({ stats: res }));
     }
 
     render() {
