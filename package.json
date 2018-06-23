@@ -4,7 +4,6 @@
   "description": "simple training tracker using strava API",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build",
     "dev": "webpack-dev-server --history-api-fallback --port 8081 --hot --host 127.0.0.1 --inline",
     "build": "webpack -d && copy src\\index.html dist\\index.html && webpack-dev-server --watch-poll --content-base src --hot --inline --history-api-fallback",
     "build:prod": "webpack -p && copy src\\index.html dist\\index.html"
